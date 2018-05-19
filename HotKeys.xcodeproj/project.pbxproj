@@ -13,6 +13,9 @@
 		3E369D0820AFFE7600F26B08 /* KeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E369D0720AFFE7600F26B08 /* KeyHandler.swift */; };
 		3E369D0B20B00BBB00F26B08 /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E369D0A20B00BBB00F26B08 /* Mapping.swift */; };
 		3E369D0E20B0110C00F26B08 /* MapperWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E369D0D20B0110C00F26B08 /* MapperWindow.xib */; };
+		3E369D1120B0190B00F26B08 /* MapperWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E369D1020B0190B00F26B08 /* MapperWindowController.swift */; };
+		3E369D1320B01DE800F26B08 /* ProfileContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E369D1220B01DE800F26B08 /* ProfileContext.swift */; };
+		3E369D1520B0209700F26B08 /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E369D1420B0209700F26B08 /* ProfileDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		3E369D0720AFFE7600F26B08 /* KeyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyHandler.swift; sourceTree = "<group>"; };
 		3E369D0A20B00BBB00F26B08 /* Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
 		3E369D0D20B0110C00F26B08 /* MapperWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapperWindow.xib; sourceTree = "<group>"; };
+		3E369D1020B0190B00F26B08 /* MapperWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperWindowController.swift; sourceTree = "<group>"; };
+		3E369D1220B01DE800F26B08 /* ProfileContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContext.swift; sourceTree = "<group>"; };
+		3E369D1420B0209700F26B08 /* ProfileDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				3E369D0A20B00BBB00F26B08 /* Mapping.swift */,
+				3E369D1220B01DE800F26B08 /* ProfileContext.swift */,
 			);
 			name = Domain;
 			sourceTree = "<group>";
@@ -87,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				3E369D0D20B0110C00F26B08 /* MapperWindow.xib */,
+				3E369D1020B0190B00F26B08 /* MapperWindowController.swift */,
+				3E369D1420B0209700F26B08 /* ProfileDataSource.swift */,
 			);
 			name = Mapper;
 			sourceTree = "<group>";
@@ -163,9 +172,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E369D1120B0190B00F26B08 /* MapperWindowController.swift in Sources */,
 				3E369D0B20B00BBB00F26B08 /* Mapping.swift in Sources */,
 				3E369CF720AFFC8500F26B08 /* AppDelegate.swift in Sources */,
 				3E369D0820AFFE7600F26B08 /* KeyHandler.swift in Sources */,
+				3E369D1520B0209700F26B08 /* ProfileDataSource.swift in Sources */,
+				3E369D1320B01DE800F26B08 /* ProfileContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
