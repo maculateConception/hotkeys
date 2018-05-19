@@ -77,10 +77,18 @@
 		3E369D0C20B010D800F26B08 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3E369D0F20B0158200F26B08 /* Mapper */,
 				3E369D0520AFFCD700F26B08 /* MainMenu.xib */,
-				3E369D0D20B0110C00F26B08 /* MapperWindow.xib */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		3E369D0F20B0158200F26B08 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				3E369D0D20B0110C00F26B08 /* MapperWindow.xib */,
+			);
+			name = Mapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
