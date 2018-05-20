@@ -15,13 +15,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
+        NSApp.setActivationPolicy(.accessory)
+        ProfileContext.load()
+        
         NSEvent.addLocalMonitorForEvents(matching: [.keyDown], handler: {(event: NSEvent!) -> NSEvent in
             
             KeyHandler.handle(event)
             return event;
         });
         
-        mwc.showWindow(self)
+//        mwc.showWindow(self)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

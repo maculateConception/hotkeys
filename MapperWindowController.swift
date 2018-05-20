@@ -28,4 +28,10 @@ class MapperWindowController: NSWindowController {
     }
     
     override var windowNibName: String? {return "MapperWindow"}
+    
+    @IBAction func saveProfileAction(_ sender: Any) {
+        
+        ProfileContext.save()
+    }
+    
 }
