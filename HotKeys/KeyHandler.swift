@@ -22,7 +22,7 @@ class KeyHandler {
         
         let chars = event.charactersIgnoringModifiers
         
-        print("This is: " + chars! + "\n")
+//        print("This is: " + chars! + "\n")
 //        print("This is: " + String(event.modifierFlags))
         
         if (isOption && chars == "1") {

@@ -13,6 +13,9 @@ class Profile {
     let name: String = "Default Profile"
     let file: String = "/path"
     var mappings: [Mapping] = []
+    var numMappings: Int {
+        return mappings.count
+    }
     
     func addMapping(_ mapping: Mapping) {
         mappings.append(mapping)
@@ -40,24 +43,31 @@ class Shortcut {
         self.chars = chars
     }
     
+//    static func fromKeyEvent(_ event: NSEvent) -> Shortcut {
+//        
+//    }
+    
     func toString() -> String {
         
-        var str = ""
+        var str: String = ""
         
         for mod in modifiers {
-            str.append(mod.rawValue) + " + "
+//            str = str + mod.rawValue
+            str.append(mod.rawValue)
         }
         
         str.append(chars)
+        
+        return str
     }
 }
 
 enum Modifier: String {
     
-    case shift
-    case ctrl
-    case option
-    case cmd
+    case shift = "⇧"
+    case ctrl = "^"
+    case option = "⌥"
+    case cmd = "⌘"
 }
 
 class Action {
@@ -71,10 +81,10 @@ class Action {
     }
 }
 
-enum ActionType {
+enum ActionType: String {
     
-    case openFile
-    case openFolder
-    case openWebAddress
-    case launchApp
+    case openFile = "Open File"
+    case openFolder = "Open Folder"
+    case openWebAddress = "Open Web Address"
+    case launchApp = "Launch Application"
 }

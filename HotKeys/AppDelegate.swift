@@ -19,12 +19,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        print("Did Finish !")
 //        
 //        // Set up an input handler to handle scrolling and type selection with key events and gestures
-//        NSEvent.addLocalMonitorForEvents(matching: [.keyDown], handler: {(event: NSEvent!) -> NSEvent in
+        
+//        NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown], handler: {(event: NSEvent!) -> NSEvent in
 //            
-//            KeyHandler.handle(event)
+//            print("Clicked !")
+//            print(self.mwc.window!.firstResponder)
 //            return event;
 //        });
-        
         
         mwc.showWindow(self)
         print(mwc.window?.isVisible)
@@ -36,4 +37,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
 }
-

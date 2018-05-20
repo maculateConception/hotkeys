@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MapperWindowController" customModule="HotKeys" customModuleProvider="target">
             <connections>
+                <outlet property="mapperView" destination="CYK-pf-JaD" id="x9O-Gz-As3"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="3z8-Wd-ibN"/>
             </connections>
         </customObject>
@@ -22,7 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="800" height="380"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFw-9D-gYI">
+                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFw-9D-gYI" userLabel="Profile Table">
                         <rect key="frame" x="20" y="50" width="760" height="310"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" id="GeF-EE-I4j">
@@ -36,7 +37,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="125" minWidth="40" maxWidth="1000" id="dPK-NQ-gFS" userLabel="Shortcut">
+                                        <tableColumn identifier="m_shortcut" width="125" minWidth="40" maxWidth="1000" id="dPK-NQ-gFS" userLabel="Shortcut">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Shortcut">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -69,7 +70,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn width="175" minWidth="40" maxWidth="1000" id="EnO-j5-9dA" userLabel="Action">
+                                        <tableColumn identifier="m_actionType" width="175" minWidth="40" maxWidth="1000" id="EnO-j5-9dA" userLabel="Action">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Action">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -102,7 +103,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn identifier="" width="445" minWidth="10" maxWidth="3.4028234663852886e+38" id="VQP-id-bVw" userLabel="Argument">
+                                        <tableColumn identifier="m_actionArgument" width="445" minWidth="10" maxWidth="3.4028234663852886e+38" id="VQP-id-bVw" userLabel="Argument">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Argument">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -136,6 +137,10 @@
                                             </prototypeCellViews>
                                         </tableColumn>
                                     </tableColumns>
+                                    <connections>
+                                        <outlet property="dataSource" destination="KRk-e0-rVC" id="VwJ-du-hv7"/>
+                                        <outlet property="delegate" destination="KRk-e0-rVC" id="sqw-Ya-hpo"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                         </clipView>
@@ -155,7 +160,7 @@
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfc-KE-lHw">
                         <rect key="frame" x="14" y="2" width="81" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CH1-eg-bgb">
+                        <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CH1-eg-bgb">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -167,5 +172,6 @@
             </view>
             <point key="canvasLocation" x="-26" y="210"/>
         </window>
+        <customObject id="KRk-e0-rVC" customClass="ProfileViewDataSource" customModule="HotKeys" customModuleProvider="target"/>
     </objects>
 </document>
