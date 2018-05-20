@@ -20,16 +20,7 @@ class MapperWindowController: NSWindowController {
         NSApp.runModal(for: dialog)
         dialog.close()
         
-//        let mods: Set<Modifier> = [Modifier.cmd]
-//        let chars = "F"
-//        
-//        let sht = Shortcut(mods, chars)
-//        let act = Action(ActionType.openWebAddress, "en.wikipedia.org")
-//        
-//        let map = Mapping(sht, act)
-//        ProfileContext.addMapping(map)
-//        
-//        mapperView.reloadData()
+        mapperView.reloadData()
     }
     
     private var theWindow: NSWindow {
@@ -37,9 +28,4 @@ class MapperWindowController: NSWindowController {
     }
     
     override var windowNibName: String? {return "MapperWindow"}
-    
-    override func windowDidLoad() {
-        
-        print("Loaded Mapper Window !")
-    }
 }

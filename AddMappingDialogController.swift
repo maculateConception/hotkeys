@@ -12,33 +12,51 @@ class AddMappingDialogController: NSWindowController {
     
     @IBOutlet weak var shortcutField: ShortcutField!
     
+    @IBOutlet weak var actionTypeMenu: NSPopUpButton!
+    
+    @IBOutlet weak var actionArgumentField: NSTextField!
+    
+    @IBAction func actionTypeChanged(_ sender: Any) {
+        shortcutField.lostFocus()
+    }
+    
     private var theWindow: NSWindow {
         return self.window!
     }
     
     override var windowNibName: String? {return "AddMappingDialog"}
     
-    override func windowDidLoad() {
+    @IBAction func saveAction(_ sender: Any) {
         
-        print("Loaded Add Mapping Window !")
+        let shc = shortcutField.shortcut
+        let actionType = getActionType()
+        let actionArg = actionArgumentField.stringValue
+        let action = Action(actionType, actionArg)
         
-        NSEvent.addLocalMonitorForEvents(matching: [.keyDown], handler: {(event: NSEvent!) -> NSEvent in
-            
-            
-            KeyHandler.handle(event)
-            return event;
-        });
+        let mapping = Mapping(shc!, action)
         
-        theWindow.makeFirstResponder(shortcutField)
-        shortcutField.cell?.showsFirstResponder = true
+        ProfileContext.addMapping(mapping)
+        NSApp.stopModal()
     }
     
-    override func showWindow(_ sender: Any?) {
-        
-        print("\nShowing dialog")
-        
-        
-        
-        super.showWindow(sender)
+    private func getActionType() -> ActionType {
+
+        switch actionTypeMenu.selectedItem!.tag {
+            
+        case 0: return ActionType.launchApp
+            
+        case 1: return ActionType.openFile
+            
+        case 2: return ActionType.openFolder
+            
+        case 3: return ActionType.openWebAddress
+            
+        default: return ActionType.launchApp
+            
+        }
+    }
+ 
+    @IBAction func cancelAction(_ sender: Any) {
+        NSApp.stopModal()
     }
 }

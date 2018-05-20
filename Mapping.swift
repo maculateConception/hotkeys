@@ -13,12 +13,27 @@ class Profile {
     let name: String = "Default Profile"
     let file: String = "/path"
     var mappings: [Mapping] = []
+    
     var numMappings: Int {
         return mappings.count
     }
     
     func addMapping(_ mapping: Mapping) {
         mappings.append(mapping)
+    }
+    
+    func getActionForShortcut(_ target: Shortcut) -> Action? {
+        
+        for mapping in mappings {
+            
+            let shc = mapping.shortcut
+            
+            if (shc.equals(target)) {
+                return mapping.action
+            }
+        }
+        
+        return nil
     }
 }
 
@@ -43,16 +58,61 @@ class Shortcut {
         self.chars = chars
     }
     
-//    static func fromKeyEvent(_ event: NSEvent) -> Shortcut {
-//        
-//    }
+    func equals(_ other: Shortcut) -> Bool {
+        
+        if (self.chars != other.chars) {
+            return false
+        }
+        
+        if (self.modifiers.count != other.modifiers.count) {
+            return false
+        }
+        
+        for mod in self.modifiers {
+            
+            if (!other.modifiers.contains(mod)) {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    static func fromKeyEvent(_ event: NSEvent) -> Shortcut {
+        
+        var mods = Set<Modifier>()
+        
+        // Indicate whether or not Shift/Command/Option were pressed
+        let isShift: Bool = event.modifierFlags.contains(NSEventModifierFlags.shift)
+        if (isShift) {
+            mods.insert(Modifier.shift)
+        }
+        
+        let isCommand: Bool = event.modifierFlags.contains(NSEventModifierFlags.command)
+        if (isCommand) {
+            mods.insert(Modifier.cmd)
+        }
+        
+        let isOption: Bool = event.modifierFlags.contains(NSEventModifierFlags.option)
+        if (isOption) {
+            mods.insert(Modifier.option)
+        }
+        
+        let isCtrl: Bool = event.modifierFlags.contains(NSEventModifierFlags.control)
+        if (isCtrl) {
+            mods.insert(Modifier.ctrl)
+        }
+        
+        let chars = event.charactersIgnoringModifiers!.uppercased()
+        
+        return Shortcut(mods, chars)
+    }
     
     func toString() -> String {
         
         var str: String = ""
         
         for mod in modifiers {
-//            str = str + mod.rawValue
             str.append(mod.rawValue)
         }
         
@@ -78,6 +138,10 @@ class Action {
     init(_ type: ActionType, _ arg: String) {
         self.type = type
         self.arg = arg
+    }
+    
+    func toString() -> String {
+        return String(format: "%@: %@", type.rawValue, arg)
     }
 }
 

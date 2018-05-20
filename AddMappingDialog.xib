@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AddMappingDialogController" customModule="HotKeys" customModuleProvider="target">
             <connections>
+                <outlet property="actionArgumentField" destination="xRf-ET-fx3" id="fAt-aj-ccn"/>
+                <outlet property="actionTypeMenu" destination="EJj-N0-C5M" id="hBy-za-bVw"/>
                 <outlet property="shortcutField" destination="xTB-jr-V3q" id="9X2-XP-HNN"/>
                 <outlet property="window" destination="G3b-ay-WUj" id="NdT-0h-udv"/>
             </connections>
@@ -17,14 +19,14 @@
         <window title="Add New Mapping" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="G3b-ay-WUj" userLabel="Add New Mapping Dialog" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="120" y="65" width="522" height="265"/>
+            <rect key="contentRect" x="120" y="65" width="522" height="210"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="Xum-MP-cFJ">
-                <rect key="frame" x="0.0" y="0.0" width="522" height="265"/>
+                <rect key="frame" x="0.0" y="0.0" width="522" height="210"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtP-WS-iBc">
-                        <rect key="frame" x="18" y="218" width="58" height="17"/>
+                        <rect key="frame" x="18" y="163" width="58" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Action:" id="qYO-4B-0Wx">
                             <font key="font" metaFont="system"/>
@@ -32,8 +34,17 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amv-D4-WKL">
+                        <rect key="frame" x="18" y="118" width="82" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Argument:" id="N4F-x0-8cE">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rX-3x-Dsn">
-                        <rect key="frame" x="18" y="171" width="71" height="17"/>
+                        <rect key="frame" x="18" y="71" width="71" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Shortcut:" id="w7s-iY-tCv">
                             <font key="font" metaFont="system"/>
@@ -42,31 +53,34 @@
                         </textFieldCell>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJj-N0-C5M" userLabel="Action Type">
-                        <rect key="frame" x="106" y="213" width="180" height="26"/>
+                        <rect key="frame" x="106" y="158" width="180" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Launch Application" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="sl6-dk-2wi" id="pHF-eK-w0F">
+                        <popUpButtonCell key="cell" type="push" title="Launch Application" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="sl6-dk-2wi" id="pHF-eK-w0F">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="dcB-sr-bEb">
                                 <items>
-                                    <menuItem title="Launch Application" id="sl6-dk-2wi">
+                                    <menuItem title="Launch Application" state="on" id="sl6-dk-2wi">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="Open File" state="on" id="Fuv-OC-hRP">
+                                    <menuItem title="Open File" tag="1" id="Fuv-OC-hRP">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="Open Folder" id="Jx1-Mb-B2w">
+                                    <menuItem title="Open Folder" tag="2" id="Jx1-Mb-B2w">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
-                                    <menuItem title="Open Web Address" id="iJ1-DQ-3Gn">
+                                    <menuItem title="Open Web Address" tag="3" id="iJ1-DQ-3Gn">
                                         <modifierMask key="keyEquivalentModifierMask"/>
                                     </menuItem>
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="actionTypeChanged:" target="-2" id="wwc-eX-GWE"/>
+                        </connections>
                     </popUpButton>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTB-jr-V3q" userLabel="Shortcut" customClass="ShortcutField" customModule="HotKeys" customModuleProvider="target">
-                        <rect key="frame" x="109" y="170" width="169" height="22"/>
+                        <rect key="frame" x="109" y="70" width="110" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="knh-Iy-oks">
                             <font key="font" metaFont="system"/>
@@ -74,9 +88,43 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRf-ET-fx3">
+                        <rect key="frame" x="109" y="113" width="353" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="f0G-03-CYb">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyz-ZP-1o1">
+                        <rect key="frame" x="345" y="3" width="81" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="73f-fZ-aKs">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="saveAction:" target="-2" id="hCl-Yp-WvY"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ug1-q4-5VF">
+                        <rect key="frame" x="421" y="3" width="97" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UhH-sR-uHT">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="cancelAction:" target="-2" id="bTL-4Q-DpL"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="262" y="108.5"/>
+            <point key="canvasLocation" x="262" y="81"/>
         </window>
     </objects>
 </document>

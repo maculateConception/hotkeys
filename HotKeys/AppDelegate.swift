@@ -14,21 +14,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let mwc = MapperWindowController()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
         
-//        print("Did Finish !")
-//        
-//        // Set up an input handler to handle scrolling and type selection with key events and gestures
-        
-//        NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown], handler: {(event: NSEvent!) -> NSEvent in
-//            
-//            print("Clicked !")
-//            print(self.mwc.window!.firstResponder)
-//            return event;
-//        });
+        NSEvent.addLocalMonitorForEvents(matching: [.keyDown], handler: {(event: NSEvent!) -> NSEvent in
+            
+            KeyHandler.handle(event)
+            return event;
+        });
         
         mwc.showWindow(self)
-        print(mwc.window?.isVisible)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

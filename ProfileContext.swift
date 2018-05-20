@@ -15,4 +15,8 @@ class ProfileContext {
     static func addMapping(_ mapping: Mapping) {
         profile.addMapping(mapping)
     }
+    
+    static func getActionForShortcut(_ shortcut: Shortcut) -> Action? {
+        return profile.getActionForShortcut(shortcut)
+    }
 }
